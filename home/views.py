@@ -15,18 +15,38 @@ def home(request):
     return render(request, 'home.html')
 
 
-def project(request):
-    return render(request, 'project.html')
 
 
-def contact(request):
-    #contact form database
+
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+
+from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.shortcuts import render
+
+def contact_form(request):
     if request.method == "POST":
-        name == request.POST['name']
-        email == request.POST['email']
-        subject == request.POST['subject']
-        message == request.POST['message']
-        contact = models.Home(name=name, email=email, subject=subject, message=message)
-        contact.save()
-    return render(request, 'home.html')
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        full_message = f"New Contact Form Submission\n\nName: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+        try:
+            send_mail(
+                subject=f"Contact Form: {subject}",
+                message=full_message,
+                from_email="abuzarrao617@gmail.com",  # Your email
+                recipient_list=["abuzarrao617@gmail.com"],  # Replace with your email
+                fail_silently=False,
+            )
+            return render(request,'thanku.html')
+        except Exception as e:
+            return HttpResponse(f"Error sending email: {e}")
+
+    return render(request, "home.html")
+
 

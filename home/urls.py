@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home import views
-
+from .views import contact_form
 
 
 # django admin changes
@@ -28,8 +28,9 @@ admin.site.index_title = "Welocom to Portal"
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('project', views.project, name='project'),
-    path('#contact', views.contact, name='contact'),
+    # path('project', views.project, name='project'),
+   
+    path("contact/", contact_form, name="contact_form"),
     # path('skills', views.skills, name='skills'),
     # path('contact', views.contact, name='contact'),
 ]
