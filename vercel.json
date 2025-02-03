@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "Django_Portfilio_MohammadBurhan/wsgi.py",
