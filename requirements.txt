@@ -13,3 +13,4 @@ Pillow==9.1.0
 django-import-export
 django-jazzmin
 django-allauth
+gunicorn==20.1.0
