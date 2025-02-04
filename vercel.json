@@ -20,11 +20,5 @@
       "src": "/(.*)",
       "dest": "Django_Portfilio_MohammadBurhan/wsgi.py"
     }
-  ],
-  "rewrites": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
   ]
 }
