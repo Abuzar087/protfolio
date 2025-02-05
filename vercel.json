@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "Django_Portfilio_MohammadBurhan.wsgi.py"
+      "dest": "Django_Portfilio_MohammadBurhan.wsgi"
     }
   ]
 }
